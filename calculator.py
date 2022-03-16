@@ -46,9 +46,9 @@ while True:
         cube(num1)
 
     elif operator == "add_mult":
-        add_mult(num1, num2)
+        add_mult(num1, num2, num3)
 
-    elif operator == "%"
+    elif operator == "%":
         add(num1, num2)
    
     #based on user input calculate run math function
