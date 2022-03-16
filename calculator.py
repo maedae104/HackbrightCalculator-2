@@ -1,7 +1,6 @@
 """CLI application for a prefix-notation calculator."""
 
-from arithmetic import (add, subtract, multiply, divide, square, cube,
-                        power, mod, )
+from arithmetic import (add, subtract, multiply, divide, square, cube, power, mod, add_mult, add_cubes)
 
 while True:
     #take in user input indefinitely 
@@ -12,7 +11,7 @@ while True:
     result = None
     num1 = tokens[1]
     num2 = tokens[2]
-    num3 = tokens[3]
+    
     #unless "q" inputted
     if user_input == "q" or "quit":
         break
@@ -20,38 +19,44 @@ while True:
     elif len(tokens) < 2:
         print("Not enough inputs.")
         continue
+    
+    elif len(tokens) < 3:
+        num3 = "0"
+
+    elif len(tokens) > 3:
+        num3 = tokens[3]
 
     elif operator == "+":
-        add(num1, num2)
+        result = float(add(num1, num2))
 
     elif operator == "-":
-        subtract(num1, num2)
+        result = float(subtract(num1, num2))
 
     elif operator == "*":
-        multiply(num1, num2)
+        result = float(multiply(num1, num2))
 
     elif operator == "/":
-        divide(num1, num2)
+        result = float(divide(num1, num2))
 
     elif operator == "%":
-        mod(num1, num2)
+        result = float(mod(num1, num2))
 
     elif operator == "**":
-        power(num1, num2)
+        result = float(power(num1, num2))
 
     elif operator == "square":
-        square(num1)
+        result = float(square(num1))
 
     elif operator == "cube":
-        cube(num1)
+        result = float(cube(num1))
 
     elif operator == "add_mult":
-        add_mult(num1, num2, num3)
+        result = float(add_mult(num1, num2, num3))
 
-    elif operator == "%":
-        add(num1, num2)
+    elif operator == "add_cubes":
+        result = float(add_cubes(num1, num2, num3))
    
     #based on user input calculate run math function
 
-
+    print(result)
 # Replace this with your code
