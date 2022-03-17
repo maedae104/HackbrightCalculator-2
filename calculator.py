@@ -1,19 +1,25 @@
 """CLI application for a prefix-notation calculator."""
 
-from arithmetic import (add, subtract, multiply, divide, square, cube, power, mod, add_mult, add_cubes)
-
+from arithmetic import (add, subtract, multiply, divide, square, cube,power, mod, add_mult, add_cubes)
+result = 0
 while True:
     #take in user input indefinitely 
     user_input = input("Enter your equation. > ")
-     #split/tokenize user input
+
+    #split/tokenize user input
     tokens = user_input.split(" ")
+    
     operator = tokens[0]
-    result = None
-    num1 = tokens[1]
-    num2 = tokens[2]
+    
+    
+    # num1 = tokens[1]
+    # num2 = tokens[2]
+
+    num1 = float(tokens[1])
+    num2 = float(tokens[2])
     
     #unless "q" inputted
-    if user_input == "q" or "quit":
+    if user_input == 'q' or user_input == 'quit':
         break
 
     elif len(tokens) < 2:
@@ -24,39 +30,42 @@ while True:
         num3 = "0"
 
     elif len(tokens) > 3:
-        num3 = tokens[3]
+        num3 = float(tokens[3])
 
     elif operator == "+":
-        result = float(add(num1, num2))
+        result = add(float(num1), float(num2))
 
     elif operator == "-":
-        result = float(subtract(num1, num2))
+        result = subtract(num1, num2)
 
     elif operator == "*":
-        result = float(multiply(num1, num2))
+        result = multiply(num1, num2)
 
     elif operator == "/":
-        result = float(divide(num1, num2))
+        result = divide(num1, num2)
 
     elif operator == "%":
-        result = float(mod(num1, num2))
+        result = mod(num1, num2)
 
     elif operator == "**":
-        result = float(power(num1, num2))
+        result = power(num1, num2)
 
     elif operator == "square":
-        result = float(square(num1))
+        result = square(num1)
 
     elif operator == "cube":
-        result = float(cube(num1))
+        result = cube(num1)
 
     elif operator == "add_mult":
-        result = float(add_mult(num1, num2, num3))
+        result = add_mult(num1, num2, num3)
 
     elif operator == "add_cubes":
-        result = float(add_cubes(num1, num2, num3))
+        result = add_cubes(num1, num2, num3)
    
     #based on user input calculate run math function
+    
+    # else:
+    #     result = "Please enter an operator followed by two integers."
 
-print(result)
+    print(result)
 # Replace this with your code
